@@ -1,9 +1,11 @@
 #/bin/bash
 
-cd ~ && mkdir repos && cd repos
+cd ~
+mkdir repos
+cd repos
 git clone git@github.com:scotthenley/dotfiles.git dotfiles
 
-brew install asdf
+
 brew install bash
 brew install bat
 brew install fd
@@ -32,16 +34,18 @@ brew install bottom
 brew tap federico-terzi/espanso
 brew install espanso
 
-if [[ $PLATFORM == 'macos' ]]; then
-   brew install trash-cli
-   brew install skhd
-   brew services start skhd
-   brew install yabai
-   brew services start yabai
+brew install trash-cli
+brew install koekeishiya/formulae/skhd
+brew services start skhd
+brew install koekeishiya/formulae/yabai
+brew services start yabai
 
 # mackup
 cp ~/repos/dotfiles/mackup/.mackup.cfg ~/.mackup.cfg
 mackup restore
+
+# install fzf shell key bindings
+$(brew --prefix)/opt/fzf/install
 
 # fisher https://github.com/jorgebucaran/fisher
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
@@ -61,17 +65,19 @@ nvim +PlugInstall
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ~/.tmux/plugins/tpm/bin/install_plugins
 
+# asdf
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
+
 # casks
-if [[ $PLATFORM == 'macos' ]]; then
 #    brew install --cask 1password
-   brew install --cask alacritty
+brew install --cask alacritty
 #    brew install --cask alfred           
 #    brew install --cask discord          
 #    brew install --cask fantastical      
 #    brew install --cask home-assistant   
-   brew install --cask obsidian         
-   brew install --cask postman          
+brew install --cask obsidian         
+brew install --cask postman          
 #    brew install --cask slack
-   brew install --cask spacelauncher    
+brew install --cask spacelauncher    
 #    brew install --cask spotify
-   brew install --cask vivaldi
+brew install --cask vivaldi

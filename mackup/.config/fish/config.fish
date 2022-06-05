@@ -2,6 +2,9 @@ set fish_greeting # disable fish greeting
 starship init fish | source
 zoxide init fish | source
 
+#asdf
+source ~/.asdf/asdf.fish
+
 set -Ux BAT_THEME Nord 
 set -Ux EDITOR nvim
 set -Ux PAGER ~/.local/bin/nvimpager
@@ -112,6 +115,11 @@ abbr vt "vim ~/.config/tmux/tmux.conf"
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+<<<<<<< HEAD
 
 #asdf
 source ~/.asdf/asdf.fish
+||||||| 2a897d4
+=======
+
+>>>>>>> fb0adfaea384b5de5b20937615a9c2480c041bd1

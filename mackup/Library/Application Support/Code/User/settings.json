@@ -10,6 +10,13 @@
   "editor.inlineSuggest.enabled": true,
   "redhat.telemetry.enabled": true,
   "terminal.external.osxExec": "Alarcitty.app",
+<<<<<<< HEAD
+||||||| 2a897d4
+  "terminal.integrated.fontSize": 16,
+=======
+  "terminal.integrated.fontFamily": "FiraCode NF",
+  "terminal.integrated.fontSize": 12,
+>>>>>>> fb0adfaea384b5de5b20937615a9c2480c041bd1
   "window.dialogStyle": "custom",
   "window.nativeFullScreen": false,
   "window.zoomLevel": 1,
