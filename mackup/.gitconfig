@@ -1,0 +1,20 @@
+[user]
+	name = Scott Henley
+	email = scott@fearlessleader.com
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[core]
+ 	editor = nvim
+ 	excludesfile = /Users/scott/.gitignore
+	pager = delta
+[interactive]
+	diffFilter = delta --color-only
+[color]
+	ui = true
+[diff]
+	colorMoved = default
+[delta]
+	navigate = true
+	line-numbers = true
+[merge]
+	conflictstyle = diff3
