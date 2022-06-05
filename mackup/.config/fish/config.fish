@@ -9,24 +9,10 @@ set -Ux FZF_CTRL_R_OPTS "--reverse --preview 'echo {}' --preview-window down:3:h
 set -Ux FZF_DEFAULT_COMMAND "fd -H -E '.git'"
 set -Ux FZF_DEFAULT_OPTS "--color=spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD"
 set -Ux FZF_TMUX_OPTS "-p"
-set -Ux GOPATH (go env GOPATH)
 set -x LANG en_US.UTF-8
 set -x LC_ALL en_US.UTF-8
 
-# os specific homebrew setup
-switch (uname)
-case Darwin
-  eval (/opt/homebrew/bin/brew shellenv)
-  fish_add_path /opt/homebrew/bin
-case Linux
-  fish_add_path "/home/linuxbrew/.linuxbrew/bin"
-end
-
-# user path
-fish_add_path /opt/homebrew/opt/node@14/bin
-fish_add_path /Users/scott/.nvm/versions/node/v16.15.0/bin
-fish_add_path "$HOME/go/bin"
-fish_add_path "$HOME/bin"
+fish_add_path /opt/homebrew/bin
 
 # adjust color scheme
 set fish_color_autosuggestion green
@@ -122,17 +108,10 @@ abbr vpi "nvim +PlugInstall"
 abbr vpu "nvim +PlugUpdate"
 abbr vpug "nvim +PlugUpgrade"
 abbr vt "vim ~/.config/tmux/tmux.conf"
-abbr y "yarn"
-abbr ya "yarn add"
-abbr yad "yarn add -D"
-abbr yb "yarn build"
-abbr yd "yarn dev"
-abbr ye "yarn e2e"
-abbr yg "yarn generate"
-abbr yl "yarn lint"
-abbr yt "yarn test"
-abbr yu "yarn ui"
 
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+
+#asdf
+source ~/.asdf/asdf.fish
