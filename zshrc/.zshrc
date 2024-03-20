@@ -1,9 +1,11 @@
 # Path to oh-my-zsh installation.
-export ZSH=/Users/scotthenley/.oh-my-zsh
+# export ZSH=/Users/scotthenley/.oh-my-zsh
 # Reevaluate the prompt string each time it's displaying a prompt
 setopt prompt_subst
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 autoload bashcompinit && bashcompinit
+# asdf completions
+fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit
 compinit
 complete -C '/usr/local/bin/aws_completer' aws
@@ -58,6 +60,9 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
+
+# ASDF
+. "$HOME/.asdf/asdf.sh"
 
 # GO
 export GOPATH='/Users/scotthenley/go'
