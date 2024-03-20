@@ -11,6 +11,9 @@ installSoftware() {
   echo "[INFO] Changing the shell of this user to use zsh...";
   echo $(which zsh) | sudo tee -a /etc/shells
   chsh -s $(which zsh)
+
+  # Install Wezterm
+  brew install --cask wezterm
 }
 
 installBrew() {

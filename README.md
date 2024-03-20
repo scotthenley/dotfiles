@@ -1,2 +1,5 @@
-# My Dotfiles
+Dotfiles
+========
+
+Neovim, zsh, tmux, asdf, wezterm, stow. 
 
