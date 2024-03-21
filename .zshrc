@@ -30,6 +30,10 @@ export EDITOR=/opt/homebrew/bin/nvim
 alias la=tree
 alias cat=bat
 
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+
+
 # Git
 alias gc="git commit -m"
 alias gca="git commit -a -m"
