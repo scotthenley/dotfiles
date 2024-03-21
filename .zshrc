@@ -3,9 +3,11 @@
 # Reevaluate the prompt string each time it's displaying a prompt
 setopt prompt_subst
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-autoload bashcompinit && bashcompinit
+
 # asdf completions
 fpath=(${ASDF_DIR}/completions $fpath)
+
+autoload bashcompinit && bashcompinit
 autoload -Uz compinit
 compinit
 complete -C '/usr/local/bin/aws_completer' aws
@@ -65,24 +67,14 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-# ASDF
-. "$HOME/.asdf/asdf.sh"
-
 # GO
 export GOPATH='/Users/scotthenley/go'
-
-# Python virtualenvs
-export WORKON_HOME=~/.virtualenvs
-. $(asdf where python)/bin/virtualenvwrapper.sh
 
 # VIM
 alias v="/opt/homebrew/bin/nvim"
 
 # Nmap
 alias nm="nmap -sC -sV -oN nmap"
-
-# direnv
-eval "$(direnv hook zsh)"
 
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/scotthenley/.vimpkg/bin:${GOPATH}/bin:/Users/scotthenley/.cargo/bin
 
@@ -130,4 +122,16 @@ fcd() { cd "$(find . -type d -not -path '*/.*' | fzf)" && l; }
 f() { echo "$(find . -type f -not -path '*/.*' | fzf)" | pbcopy }
 fv() { nvim "$(find . -type f -not -path '*/.*' | fzf)" }
 
-eval "$(zoxide init zsh)"
+# ASDF
+. "$HOME/.asdf/asdf.sh"
+
+# Python virtualenvs 
+# must come after sourcing asdf!!
+export WORKON_HOME=~/.virtualenvs
+. $(asdf where python)/bin/virtualenvwrapper.sh
+
+# direnv
+# must come after sourcing asdf!!
+eval "$(direnv hook zsh)"
+
+eval "$(zoxide init zsh)"source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
