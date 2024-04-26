@@ -32,7 +32,8 @@ alias cat=bat
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-
+# Lazygit
+alias lg="lazygit"
 
 # Git
 alias gc="git commit -m"

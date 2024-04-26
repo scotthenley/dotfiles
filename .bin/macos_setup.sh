@@ -6,9 +6,16 @@ installSoftware() {
 	# Install zsh and required software
 	echo "[INFO] Installing tools and software..."
 	xargs brew install < homebrew_packages.txt
+	
+	# Install casks
+	brew install --cask iterm2
+	brew install --cask 1password
+	brew install --cask 1password-cli
+	brew install --cask firefox
+	brew install --cask rectangle
+	brew install --cask notion
+	brew install --cask devtoys
 
-	# Install Wezterm
-	brew install --cask wezterm
 }
 
 installBrew() {
@@ -33,10 +40,10 @@ updateBrew() {
 installAsdf() {
 	# Clone repository
 	echo "[INFO] Cloning asdf repository..."
-	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
 	source ~/.zshrc
 
-	# Install useful plugins (at least for me :D)
+	# Install asdf plugins 
 	echo "[INFO] Installing asdf plugins..."
 	source $HOME/.asdf/asdf.sh
 
