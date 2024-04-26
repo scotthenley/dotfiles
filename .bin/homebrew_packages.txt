@@ -1,4 +1,3 @@
-asdf
 awscli
 bash
 bash-completion

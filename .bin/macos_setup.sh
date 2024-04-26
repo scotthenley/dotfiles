@@ -47,7 +47,7 @@ installAsdf() {
 	echo "[INFO] Installing asdf plugins..."
 	source $HOME/.asdf/asdf.sh
 
-	asdf plugin-add python
+	asdf plugin-add python https://github.com/asdf-community/asdf-python.git
 	asdf plugin-add golang https://github.com/asdf-community/asdf-golang.git
 	echo . ~/.asdf/plugins/golang/set-env.zsh
 	asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
@@ -75,15 +75,13 @@ doIt() {
 	installTpm
 }
 
-if [ "$1" == "--force" -o "$1" == "-f" ]; then
+
+read -q "REPLY?I'm about to change the configuration files placed in your home directory. Do you want to continue? (y/n) " -n 1
+echo ""
+if [[ $REPLY =~ ^[Yy]$ ]]; then
 	doIt
-else
-	read -p "I'm about to change the configuration files placed in your home directory. Do you want to continue? (y/n) " -n 1
-	echo ""
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		doIt
-	fi
 fi
+
 
 echo ""
 echo "[INFO] If there isn't any error message, the process is completed."
