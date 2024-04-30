@@ -1,9 +1,10 @@
-add_newline = false
+#:w
+#add_newline = false
 # A minimal left prompt
-format = """$directory$character"""
+#format = """$directory$character"""
 palette = "catppuccin_mocha"
 # move the rest of the prompt to the right
-right_format = """$all"""
+#right_format = """$all"""
 
 [aws]
 format = 'on [$symbol($profile )(\($region\) )]($style)'
