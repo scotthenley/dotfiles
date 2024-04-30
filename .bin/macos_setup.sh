@@ -6,9 +6,16 @@ installSoftware() {
 	# Install zsh and required software
 	echo "[INFO] Installing tools and software..."
 	xargs brew install < homebrew_packages.txt
+	
+	# Install casks
+	brew install --cask iterm2
+	brew install --cask 1password
+	brew install --cask 1password-cli
+	brew install --cask firefox
+	brew install --cask rectangle
+	brew install --cask notion
+	brew install --cask devtoys
 
-	# Install Wezterm
-	brew install --cask wezterm
 }
 
 installBrew() {

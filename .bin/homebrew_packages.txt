@@ -5,6 +5,7 @@ bat
 brew-cask-completion
 btop
 eza
+firefox
 fzf
 grpcurl
 helix
@@ -15,6 +16,7 @@ lazygit
 lsd
 neovim
 nmap
+pipx
 ranger
 raycast
 ripgrep
@@ -27,3 +29,4 @@ wget
 xh
 zsh-autosuggestions
 zsh-syntax-highlighting
+
