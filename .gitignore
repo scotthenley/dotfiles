@@ -5,3 +5,10 @@ tmux/plugins/
 .envrc
 .direnv/
 .tool-versions
+*.egg
+*.egg-info
+*.bv
+*.pyc
+build
+__pycache__
+eggs
