@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /Users/scotthenley/.config/.git/ignore
+	excludesfile = /Users/scotthenley/.gitignore_global
 	editor = code --wait
 	ignorecase = false
 [push]
