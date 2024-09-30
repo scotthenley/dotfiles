@@ -1,4 +1,3 @@
-# Reevaluate the prompt string each time it's displaying a prompt
 setopt prompt_subst
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
@@ -25,12 +24,11 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export LANG=en_US.UTF-8
 
 # editor
-export EDITOR=/opt/homebrew/bin/nvim
+export EDITOR=nvim
+export VISUAL="$EDITOR"
 
 alias la=tree
 alias cat=bat
-
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Lazygit
 alias lg='lazygit'
@@ -71,7 +69,7 @@ export GOPATH='/Users/scotthenley/go'
 export GOPRIVATE='github.com/AgencyPMG/*'
 
 # VIM
-alias v="/opt/homebrew/bin/nvim"
+alias v="nvim"
 
 # Nmap
 alias nm="nmap -sC -sV -oN nmap"
