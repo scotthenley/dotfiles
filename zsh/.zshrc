@@ -125,10 +125,6 @@ fv() { nvim "$(find . -type f -not -path '*/.*' | fzf)" }
 
 export GOROOT=$(asdf where golang)/go
 
-# Python virtualenvs 
-# must come after sourcing asdf!!
-export WORKON_HOME=~/.virtualenvs
-. $(asdf where python)/bin/virtualenvwrapper.sh
 
 # direnv
 # must come after sourcing asdf!!
@@ -136,3 +132,5 @@ eval "$(direnv hook zsh)"
 
 eval "$(zoxide init zsh)"source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 alias lzd='lazydocker'
+
+. "$HOME/.local/bin/env"
