@@ -95,6 +95,9 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
 
 export PATH=/opt/homebrew/bin:$PATH
 
+# Postgres.app
+export  PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+
 alias mat='osascript -e "tell application \"System Events\" to key code 126 using {command down}" && tmux neww "cmatrix"'
 
 function ranger {
@@ -127,8 +130,11 @@ export GOROOT=$(asdf where golang)/go
 
 # Python virtualenvs 
 # must come after sourcing asdf!!
-export WORKON_HOME=~/.virtualenvs
-. $(asdf where python)/bin/virtualenvwrapper.sh
+# export WORKON_HOME=~/.virtualenvs
+# . $(asdf where python)/bin/virtualenvwrapper.sh
+
+#uv venv
+alias av="source .venv/bin/activate"
 
 # direnv
 # must come after sourcing asdf!!
@@ -136,3 +142,5 @@ eval "$(direnv hook zsh)"
 
 eval "$(zoxide init zsh)"source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 alias lzd='lazydocker'
+
+. "$HOME/.local/bin/env"
