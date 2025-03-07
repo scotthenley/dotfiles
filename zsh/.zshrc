@@ -138,3 +138,6 @@ eval "$(direnv hook zsh)"
 
 eval "$(zoxide init zsh)"source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 alias lzd='lazydocker'
+
+. "$HOME/.local/bin/env"
+eval "$(uv generate-shell-completion zsh)"
