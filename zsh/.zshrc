@@ -95,6 +95,9 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow'
 
 export PATH=/opt/homebrew/bin:$PATH
 
+# node
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+
 # Postgres.app
 export  PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 
@@ -124,10 +127,10 @@ f() { echo "$(find . -type f -not -path '*/.*' | fzf)" | pbcopy }
 fv() { nvim "$(find . -type f -not -path '*/.*' | fzf)" }
 
 # ASDF
-. "$HOME/.asdf/asdf.sh"
+ASDF_DATA_DIR="/home/myuser/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 export GOROOT=$(asdf where golang)/go
-
 
 #uv venv
 alias av="source .venv/bin/activate"
