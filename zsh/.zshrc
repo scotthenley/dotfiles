@@ -65,19 +65,20 @@ alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
 # GO
-export GOPATH='/Users/scotthenley/go'
+#export GOPATH='$HOME/go'
 export GOPRIVATE='github.com/AgencyPMG/*'
 
 # VIM
 alias v="nvim"
-
+alias vim="nvim"
 # Nmap
 alias nm="nmap -sC -sV -oN nmap"
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/scotthenley/.vimpkg/bin:${GOPATH}/bin:/Users/scotthenley/.cargo/bin
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/go/bin:$HOME/.cargo/bin"
 
 alias cl='clear'
 
+alias lzd='lazydocker'
 
 # HTTP requests with xh
 alias http="xh"
@@ -127,20 +128,23 @@ f() { echo "$(find . -type f -not -path '*/.*' | fzf)" | pbcopy }
 fv() { nvim "$(find . -type f -not -path '*/.*' | fzf)" }
 
 # ASDF
-ASDF_DATA_DIR="/home/myuser/.asdf"
-export PATH="$ASDF_DATA_DIR/shims:$PATH"
+# ASDF_DATA_DIR="/home/scotthenley/.asdf"
+# export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
-export GOROOT=$(asdf where golang)/go
 
 #uv venv
 alias av="source .venv/bin/activate"
 
 # direnv
-# must come after sourcing asdf!!
 eval "$(direnv hook zsh)"
 
-eval "$(zoxide init zsh)"source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-alias lzd='lazydocker'
+# zoxide
+eval "$(zoxide init zsh)"
+
+# uv
+export PATH="$HOME/.local/bin:$PATH"
+
+eval "$(uv generate-shell-completion zsh)"
 
 . "$HOME/.local/bin/env"
-eval "$(uv generate-shell-completion zsh)"
+
