@@ -131,6 +131,12 @@ fv() { nvim "$(find . -type f -not -path '*/.*' | fzf)" }
 # ASDF_DATA_DIR="/home/scotthenley/.asdf"
 # export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
+# envrc python 
+alias mkpyrc='cat > .envrc << EOF
+test -d .venv || uv venv --python \$(cat .python-version)
+source .venv/bin/activate
+EOF
+chmod +x .envrc && echo ".envrc file created in $(pwd)"'
 
 #uv venv
 alias av="source .venv/bin/activate"
