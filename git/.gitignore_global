@@ -10,4 +10,4 @@
 .direnv/
 .envrc
 .tool-versions
-
+.claude/
