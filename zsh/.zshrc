@@ -33,6 +33,9 @@ alias cat=bat
 # Lazygit
 alias lg='lazygit'
 
+# Lazydocker
+alias lzd='lazydocker'
+
 # Git
 alias gc="git commit -m"
 alias gca="git commit -a -m"
