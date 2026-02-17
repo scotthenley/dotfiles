@@ -67,6 +67,11 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
+# ZSHRC local
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
+
 # GO
 #export GOPATH='$HOME/go'
 export GOPRIVATE='github.com/AgencyPMG/*'
@@ -147,11 +152,11 @@ chmod +x .envrc && echo ".envrc file created in $(pwd)"'
 #uv venv
 alias av="source .venv/bin/activate"
 
-# direnv
-eval "$(direnv hook zsh)"
-
 # zoxide
 eval "$(zoxide init zsh)"
+
+# direnv
+eval "$(direnv hook zsh)"
 
 # uv
 export PATH="$HOME/.local/bin:$PATH"
@@ -160,8 +165,14 @@ eval "$(uv generate-shell-completion zsh)"
 
 . "$HOME/.local/bin/env"
 
+# homebrew dunamic linker
+export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib:$DYLD_FALLBACK_LIBRARY_PATH
+
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/scotthenley/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# mise
+eval "$(/Users/scotthenley/.local/bin/mise activate zsh)"
