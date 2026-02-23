@@ -20,6 +20,11 @@
         "GITHUB_PERSONAL_ACCESS_TOKEN": "{env:GITHUB_PAT}"
       }
     },
+    "atlassian": {
+      "type": "remote",
+      "url": "https://mcp.atlassian.com/v1/sse",
+      "enabled": true
+    },
     "aws-central": {
       "type": "local",
       "command": ["aws-vault", "exec", "central", "--", "uvx", "mcp-proxy-for-aws@latest", "https://aws-mcp.us-east-1.api.aws/mcp", "--metadata", "AWS_REGION=us-east-1"],

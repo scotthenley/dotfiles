@@ -176,3 +176,6 @@ compinit
 
 # mise
 eval "$(/Users/scotthenley/.local/bin/mise activate zsh)"
+
+# opencode
+export PATH=/Users/scotthenley/.opencode/bin:$PATH
