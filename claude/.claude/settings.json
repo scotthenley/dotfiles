@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "mcp__github__get_file_contents",
+      "Bash(ls ~/.claude/*.json)",
+      "mcp__atlassian__search",
+      "mcp__atlassian__searchJiraIssuesUsingJql"
+    ],
+    "defaultMode": "default"
+  },
+  "enabledPlugins": {
+    "exa-mcp-server@exa-mcp-server": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true
+  }
+}

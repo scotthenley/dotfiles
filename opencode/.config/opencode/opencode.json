@@ -1,8 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
 
-  "theme": "tokyonight",
-
   "plugin": [
     "opencode-anthropic-auth@latest"
   ],
@@ -46,8 +44,7 @@
       "enabled": false
     }
   },
-  // Default model for general coding — best balance of quality + cost
-  "model": "opencode/claude-sonnet-4-5",
+  "model": "opencode/claude-sonnet-4-6",
 
   // Cheaper model for lightweight tasks (title generation, summaries)
   "small_model": "openai/gpt-5-nano",
@@ -86,7 +83,7 @@
     // PRIMARY: Main coding agent — Sonnet for daily driver work
     "build": {
       "mode": "primary",
-      "model": "opencode/claude-sonnet-4-5",
+      "model": "opencode/claude-sonnet-4-6",
       "temperature": 0.2,
       "tools": {
         "write": true,
@@ -111,7 +108,7 @@
     "code-reviewer": {
       "description": "Reviews code for best practices, security, and potential issues",
       "mode": "subagent",
-      "model": "opencode/claude-sonnet-4-5",
+      "model": "opencode/claude-sonnet-4-6",
       "prompt": "You are a senior code reviewer. Focus on security vulnerabilities, performance bottlenecks, error handling, and maintainability. Be specific and actionable.",
       "temperature": 0.2,
       "tools": {
@@ -125,7 +122,7 @@
     "implementer": {
       "description": "Handles complex multi-file implementations and refactoring",
       "mode": "subagent",
-      "model": "openai/gpt-5.2-codex",
+      "model": "openai/gpt-5.3-codex",
       "reasoningEffort": "high",
       "temperature": 0.2,
       "tools": {
