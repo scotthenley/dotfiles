@@ -1,9 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
 
-  "plugin": [
-    "opencode-anthropic-auth@latest"
-  ],
+  "plugin": [],
   "mcp": {
     "exa": {
       "type": "remote",
@@ -11,16 +9,27 @@
       "enabled": true
     },
     "github": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-github"],
+      "type": "remote",
+      "url": "https://api.githubcopilot.com/mcp/",
       "enabled": true,
-      "environment": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "{env:GITHUB_PAT}"
+      "oauth": false,
+      "headers": {
+        "Authorization": "Bearer {env:GITHUB_PAT}"
       }
     },
     "atlassian": {
       "type": "remote",
       "url": "https://mcp.atlassian.com/v1/sse",
+      "enabled": true
+    },
+    "obsidian": {
+      "type": "local",
+      "command": ["npx", "@bitbonsai/mcpvault@latest", "/Users/scotthenley/ObsidianVault"],
+      "enabled": true
+    },
+    "lucid": {
+      "type": "remote",
+      "url": "https://mcp.lucid.app/mcp",
       "enabled": true
     },
     "aws-central": {
@@ -44,119 +53,8 @@
       "enabled": false
     }
   },
-  "model": "opencode/claude-sonnet-4-6",
+  "model": "openai/gpt-5.4",
 
   // Cheaper model for lightweight tasks (title generation, summaries)
-  "small_model": "openai/gpt-5-nano",
-
-  "provider": {
-    "anthropic": {
-      "models": {
-        "claude-sonnet-4-5": {
-          "options": {
-            "thinking": {
-              "type": "enabled",
-              "budgetTokens": 16000
-            }
-          }
-        }
-      }
-    },
-    "openai": {
-      "models": {
-        "gpt-5.2-codex": {
-          "options": {
-            "reasoningEffort": "high",
-            "textVerbosity": "low"
-          }
-        },
-        "gpt-5": {
-          "options": {
-            "reasoningEffort": "medium"
-          }
-        }
-      }
-    }
-  },
-
-  "agent": {
-    // PRIMARY: Main coding agent — Sonnet for daily driver work
-    "build": {
-      "mode": "primary",
-      "model": "opencode/claude-sonnet-4-6",
-      "temperature": 0.2,
-      "tools": {
-        "write": true,
-        "edit": true,
-        "bash": true
-      }
-    },
-
-    // PRIMARY: Architecture & design planning — Opus for deep thinking
-    "plan": {
-      "mode": "primary",
-      "model": "opencode/claude-opus-4-6",
-      "temperature": 0.3,
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": false
-      }
-    },
-
-    // SUBAGENT: Code review — Sonnet is great here, no write access
-    "code-reviewer": {
-      "description": "Reviews code for best practices, security, and potential issues",
-      "mode": "subagent",
-      "model": "opencode/claude-sonnet-4-6",
-      "prompt": "You are a senior code reviewer. Focus on security vulnerabilities, performance bottlenecks, error handling, and maintainability. Be specific and actionable.",
-      "temperature": 0.2,
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": true
-      }
-    },
-
-    // SUBAGENT: Heavy implementation — Codex for complex multi-file work
-    "implementer": {
-      "description": "Handles complex multi-file implementations and refactoring",
-      "mode": "subagent",
-      "model": "openai/gpt-5.3-codex",
-      "reasoningEffort": "high",
-      "temperature": 0.2,
-      "tools": {
-        "write": true,
-        "edit": true,
-        "bash": true
-      }
-    },
-
-    // SUBAGENT: File search & codebase exploration — cheap and fast
-    "explorer": {
-      "description": "Explores codebase, finds files, answers questions about code structure",
-      "mode": "subagent",
-      "model": "openai/gpt-5-mini",
-      "temperature": 0.1,
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": true
-      }
-    },
-
-    // SUBAGENT: Debugging — GPT-5 is methodical here
-    "debugger": {
-      "description": "Investigates bugs, reads logs, traces issues",
-      "mode": "subagent",
-      "model": "openai/gpt-5",
-      "reasoningEffort": "high",
-      "temperature": 0.2,
-      "tools": {
-        "write": false,
-        "edit": false,
-        "bash": true
-      }
-    }
-  }
+  "small_model": "openai/gpt-5.4-mini",
 }

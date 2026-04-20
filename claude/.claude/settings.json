@@ -17,5 +17,15 @@
     "typescript-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true
-  }
+  },
+  "mcpServers": {
+    "obsidian": {
+      "command": "npx",
+      "args": [
+        "@bitbonsai/mcpvault@latest",
+        "/users/scotthenley/ObsidianVault/"
+      ]
+    }
+  },
+  "model": "opus[1m]"
 }
